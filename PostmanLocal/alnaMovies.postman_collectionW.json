@@ -1,0 +1,1298 @@
+{
+	"info": {
+		"_postman_id": "340b50e2-6eb3-49b4-87ae-7d2bd9e4c970",
+		"name": "alnaMovies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POSTmoviewithUnauthUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYyOTg0MTk2OSwiZXhwIjoxNjI5ODQ5MTY5LCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmluZGV4Il19.c7WMhsrPvI0hQlBlV1Bn58aUy6ZZTtE_FJLmDqGPjE72pnEZLJjngkBHlMYCorbWi-LCv4ys56tsDdhF5jOAzOC0S9-dv6rZGRmSj4h1y8YzNxKTPznHgWyjL868m6eNZ4iXsace8U__j9xk7pHGydEPgOGqspzCIILTQqy-B2HcDo7Z8rvH0sTbmuNac2Q0ac4pmUc83KuvSDf2ioXDYpJb4O3PW4gjymjItsksHhVFrCJR0yq_VMeExHcQg-rWobufnnC0iwJqP55ripyrzyczcaBiLZCBkuqIAJiLzjqBLxhJJwu5dgihih3G9kqGWWXNozrL2__HCMptZtDQgw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"Test add movie\", \"release_date\":\"August 23, 2021\", \"type\":\"Action\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"link\":\"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/movies/create",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"movies",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POSTmoviewithUnauthUser",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"Test add movie\", \"release_date\":\"August 23, 2021\", \"type\":\"Action\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"link\":\"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/movies/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies",
+								"create"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.1 Python/3.8.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Aug 2021 14:48:44 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": 401,\n    \"message\": \"Unauthorized\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "PostMovieWithvaildAuth",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDA5OTQ0MCwiZXhwIjoxNjMwMTg1ODQwLCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicG9zdDptb3ZpZXMiXX0.EfqkROQ9eiG5wHlcZ3DZUXJX52g2jpaeiZkYLLCBC-kRigGiYdz1LmlomhEO9KBfBEWDBJsEhI56IERXLZZ8v3IcMhyMYyebuoTQmK5HMo0XlQnhq5hRW3_qQ25Qjo__Bs1hbtF1LFBRSF6VBNXQH_-RkDksbnCvCuJn7mJ2zQUZRZc7D1rsbLe-CnKt2Lie6dd4LDoS-eLAnE1sp8YNmdwJ-JYmvK37bRZLhyGG7yGUTkjBL2xhQUw81JBjk_zuym5zJyejB-UzhB0ByQ86OpLuhYBC_W4p8VDBC8tdeRljQ2UiykwVqdpPW3Wgd0giMSWdmGwEFAz4UDB3iuuyRA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"Test new movie\", \"release_date\":\"August 23, 2021\", \"type\":\"Action\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"link\":\"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/movies/create",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"movies",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PostMovieWithvaildAuth",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"Test new movie\", \"release_date\":\"August 23, 2021\", \"type\":\"Action\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"link\":\"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/movies/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.1 Python/3.8.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Aug 2021 14:56:02 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"created\": \"Test new movie\",\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "publicEndpoint",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "publicEndpoint",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "69"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.1 Python/3.8.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Aug 2021 14:56:42 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Welcome to Alna Movies websit\",\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "GetMoviesWithValidAuth",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDA5OTQ0MCwiZXhwIjoxNjMwMTg1ODQwLCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicG9zdDptb3ZpZXMiXX0.EfqkROQ9eiG5wHlcZ3DZUXJX52g2jpaeiZkYLLCBC-kRigGiYdz1LmlomhEO9KBfBEWDBJsEhI56IERXLZZ8v3IcMhyMYyebuoTQmK5HMo0XlQnhq5hRW3_qQ25Qjo__Bs1hbtF1LFBRSF6VBNXQH_-RkDksbnCvCuJn7mJ2zQUZRZc7D1rsbLe-CnKt2Lie6dd4LDoS-eLAnE1sp8YNmdwJ-JYmvK37bRZLhyGG7yGUTkjBL2xhQUw81JBjk_zuym5zJyejB-UzhB0ByQ86OpLuhYBC_W4p8VDBC8tdeRljQ2UiykwVqdpPW3Wgd0giMSWdmGwEFAz4UDB3iuuyRA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/movies",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetMoviesWithValidAuth",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/movies",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2082"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.1 Python/3.8.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Aug 2021 17:09:04 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Movies\": [\n        {\n            \"id\": 2,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"Test add movie1\",\n            \"type\": \"Action\"\n        },\n        {\n            \"id\": 3,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [\n                \"Test qadd actor\",\n                \"Test add actor\"\n            ],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"Test add movie2\",\n            \"type\": \"Action\"\n        },\n        {\n            \"id\": 4,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [\n                \"Test add actor0\"\n            ],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"Test add movie3\",\n            \"type\": \"Action\"\n        },\n        {\n            \"id\": 5,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"Test add movie4\",\n            \"type\": \"Action\"\n        },\n        {\n            \"id\": 6,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"Test new movie\",\n            \"type\": \"Action\"\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "GetMoviesWithInvalidAuth",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYyOTg0MTk2OSwiZXhwIjoxNjI5ODQ5MTY5LCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmluZGV4Il19.c7WMhsrPvI0hQlBlV1Bn58aUy6ZZTtE_FJLmDqGPjE72pnEZLJjngkBHlMYCorbWi-LCv4ys56tsDdhF5jOAzOC0S9-dv6rZGRmSj4h1y8YzNxKTPznHgWyjL868m6eNZ4iXsace8U__j9xk7pHGydEPgOGqspzCIILTQqy-B2HcDo7Z8rvH0sTbmuNac2Q0ac4pmUc83KuvSDf2ioXDYpJb4O3PW4gjymjItsksHhVFrCJR0yq_VMeExHcQg-rWobufnnC0iwJqP55ripyrzyczcaBiLZCBkuqIAJiLzjqBLxhJJwu5dgihih3G9kqGWWXNozrL2__HCMptZtDQgw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/movies",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetMoviesWithInvalidAuth",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/movies",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.1 Python/3.8.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Aug 2021 15:00:42 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": 401,\n    \"message\": \"Unauthorized\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "DeleteMovieWithInvalidToken",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYyOTg0MTk2OSwiZXhwIjoxNjI5ODQ5MTY5LCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmluZGV4Il19.c7WMhsrPvI0hQlBlV1Bn58aUy6ZZTtE_FJLmDqGPjE72pnEZLJjngkBHlMYCorbWi-LCv4ys56tsDdhF5jOAzOC0S9-dv6rZGRmSj4h1y8YzNxKTPznHgWyjL868m6eNZ4iXsace8U__j9xk7pHGydEPgOGqspzCIILTQqy-B2HcDo7Z8rvH0sTbmuNac2Q0ac4pmUc83KuvSDf2ioXDYpJb4O3PW4gjymjItsksHhVFrCJR0yq_VMeExHcQg-rWobufnnC0iwJqP55ripyrzyczcaBiLZCBkuqIAJiLzjqBLxhJJwu5dgihih3G9kqGWWXNozrL2__HCMptZtDQgw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/movies/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"movies",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DeleteMovieWithInvalidToken",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/movies/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies",
+								"2"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.1 Python/3.8.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Aug 2021 15:18:06 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": 401,\n    \"message\": \"Unauthorized\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "DeleteMovieWithValidToken",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDA5OTQ0MCwiZXhwIjoxNjMwMTg1ODQwLCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicG9zdDptb3ZpZXMiXX0.EfqkROQ9eiG5wHlcZ3DZUXJX52g2jpaeiZkYLLCBC-kRigGiYdz1LmlomhEO9KBfBEWDBJsEhI56IERXLZZ8v3IcMhyMYyebuoTQmK5HMo0XlQnhq5hRW3_qQ25Qjo__Bs1hbtF1LFBRSF6VBNXQH_-RkDksbnCvCuJn7mJ2zQUZRZc7D1rsbLe-CnKt2Lie6dd4LDoS-eLAnE1sp8YNmdwJ-JYmvK37bRZLhyGG7yGUTkjBL2xhQUw81JBjk_zuym5zJyejB-UzhB0ByQ86OpLuhYBC_W4p8VDBC8tdeRljQ2UiykwVqdpPW3Wgd0giMSWdmGwEFAz4UDB3iuuyRA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/movies/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"movies",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DeleteMovieWithValidToken",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/movies/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.1 Python/3.8.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Aug 2021 15:19:12 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"delete\": 1,\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "PostActorsWithInvalidToken",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYyOTg0MTk2OSwiZXhwIjoxNjI5ODQ5MTY5LCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmluZGV4Il19.c7WMhsrPvI0hQlBlV1Bn58aUy6ZZTtE_FJLmDqGPjE72pnEZLJjngkBHlMYCorbWi-LCv4ys56tsDdhF5jOAzOC0S9-dv6rZGRmSj4h1y8YzNxKTPznHgWyjL868m6eNZ4iXsace8U__j9xk7pHGydEPgOGqspzCIILTQqy-B2HcDo7Z8rvH0sTbmuNac2Q0ac4pmUc83KuvSDf2ioXDYpJb4O3PW4gjymjItsksHhVFrCJR0yq_VMeExHcQg-rWobufnnC0iwJqP55ripyrzyczcaBiLZCBkuqIAJiLzjqBLxhJJwu5dgihih3G9kqGWWXNozrL2__HCMptZtDQgw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Test add actor\",\"gender\":\"female\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"movie_id\":3}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/actors/create",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"actors",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PostActorsWithInvalidToken",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"Test add actor\",\"gender\":\"female\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"movie_id\":3}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/actors/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"actors",
+								"create"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.1 Python/3.8.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Aug 2021 16:39:54 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": 401,\n    \"message\": \"Unauthorized\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "PostActorsWithvalidToken",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjEyOTA1NTI3OTllNzAwMDcwODEzOTZlIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDA3ODU2NywiZXhwIjoxNjMwMDg1NzY3LCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.WrgEmyZv2qHsSCIAXO83EpE6Lrb2JkFSgkBNajfgLQKrsicOzLj8RSFWMzChRyy8JEmuO6oze8Jkxvj0ezqVD7aUYG5BW14t22Jq39Sj6wVY4OvTX8Y9RODZ5ucUQG42K1oKpwS4uIBWLCN_QOj0F_VpxmZkPBzu2kK4YzJC0hi9MsnfC30kph_0HlKLFTAyWcm7Mc3k87LpSEbsBvARwMM9R-c0yuiZnjbZUrDwpFMfqhBPrACXADKNOEXI0oh_VU_easgqRMUJEnRc-W87BLXRTbvn_gmC7LdjmEc54NIxIYFGnCLQbSZrMYjGAn4e9eVV_joPTrYfOhSM636bLQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Test add actor0\",\"gender\":\"F\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"movie_id\":4}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/actors/create",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"actors",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PostActorsWithvalidToken",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"Test add actor0\",\"gender\":\"F\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"movie_id\":4}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/actors/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"actors",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.1 Python/3.8.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Aug 2021 16:42:43 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"created\": \"Test add actor0\",\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "GetActorswithvalidToken",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDA5OTQ0MCwiZXhwIjoxNjMwMTg1ODQwLCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicG9zdDptb3ZpZXMiXX0.EfqkROQ9eiG5wHlcZ3DZUXJX52g2jpaeiZkYLLCBC-kRigGiYdz1LmlomhEO9KBfBEWDBJsEhI56IERXLZZ8v3IcMhyMYyebuoTQmK5HMo0XlQnhq5hRW3_qQ25Qjo__Bs1hbtF1LFBRSF6VBNXQH_-RkDksbnCvCuJn7mJ2zQUZRZc7D1rsbLe-CnKt2Lie6dd4LDoS-eLAnE1sp8YNmdwJ-JYmvK37bRZLhyGG7yGUTkjBL2xhQUw81JBjk_zuym5zJyejB-UzhB0ByQ86OpLuhYBC_W4p8VDBC8tdeRljQ2UiykwVqdpPW3Wgd0giMSWdmGwEFAz4UDB3iuuyRA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/actors",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"actors"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetActorswithvalidToken",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/actors",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "780"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.1 Python/3.8.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Aug 2021 17:37:24 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Movies\": [\n        {\n            \"gender\": \"F\",\n            \"id\": 1,\n            \"image_link \": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"movie_id\": 3,\n            \"name\": \"Test qadd actor\"\n        },\n        {\n            \"gender\": \"Female\",\n            \"id\": 2,\n            \"image_link \": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"movie_id\": 4,\n            \"name\": \"Test edit actor\"\n        },\n        {\n            \"gender\": \"F\",\n            \"id\": 3,\n            \"image_link \": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"movie_id\": 4,\n            \"name\": \"Test add actor0\"\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "editmovie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBlNDQ1ZTQ2OGRhYmMwMDY5MGEzMjU3IiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDA4NDc2MiwiZXhwIjoxNjMwMDkxOTYyLCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.GE3QIc3XQwffJuSZYlYuM6QgQfbN1MTgUmgAPs2uZ4Cw8Jwhr7z408obWMqS3zxQ4DQ40bLv7BOGKrKYXpl1T5tw4dgZwoYXBEDLE9o5S4XZ2Ne_UO8E4edRIRCnsZ0Ahv1cBNUam1uAaF1iFCQ3-LS2RqBkGaFEilR2c6_seMJa_5TG_7G4vicOCP0nubUhRfV8m1kE9vuevNzrCt6AAmL8qubRK3hfmxdIk3uVvf-FRbPyUL-Sn8kPRTIp3xcWkp2LVcLLzAU2LFq4Br71u2PYBzYlJxg2mP5pTi4bwuB8PQ2UnSArjE_aeoPiOjzwtzJdrfOzT_kQJ0c9Hv3GIw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"edit movie\", \"release_date\":\"August 23, 2021\", \"type\":\"Action,Drama\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"link\":\"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/movies/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"movies",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "editmovie",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"edit movie\", \"release_date\":\"August 23, 2021\", \"type\":\"Action,Drama\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"link\":\"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/movies/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"movies",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2085"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.1 Python/3.8.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Aug 2021 17:40:15 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Movies\": [\n        {\n            \"id\": 3,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"Test add movie2\",\n            \"type\": \"Action\"\n        },\n        {\n            \"id\": 4,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [\n                \"Test add actor0\",\n                \"Test edit actor\"\n            ],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"Test add movie3\",\n            \"type\": \"Action\"\n        },\n        {\n            \"id\": 5,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"Test add movie4\",\n            \"type\": \"Action\"\n        },\n        {\n            \"id\": 6,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"Test new movie\",\n            \"type\": \"Action\"\n        },\n        {\n            \"id\": 2,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [\n                \"Test edit actor1\"\n            ],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"edit movie\",\n            \"type\": \"Action,Drama\"\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "editActor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBlNDQ1ZTQ2OGRhYmMwMDY5MGEzMjU3IiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDA4NDc2MiwiZXhwIjoxNjMwMDkxOTYyLCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.GE3QIc3XQwffJuSZYlYuM6QgQfbN1MTgUmgAPs2uZ4Cw8Jwhr7z408obWMqS3zxQ4DQ40bLv7BOGKrKYXpl1T5tw4dgZwoYXBEDLE9o5S4XZ2Ne_UO8E4edRIRCnsZ0Ahv1cBNUam1uAaF1iFCQ3-LS2RqBkGaFEilR2c6_seMJa_5TG_7G4vicOCP0nubUhRfV8m1kE9vuevNzrCt6AAmL8qubRK3hfmxdIk3uVvf-FRbPyUL-Sn8kPRTIp3xcWkp2LVcLLzAU2LFq4Br71u2PYBzYlJxg2mP5pTi4bwuB8PQ2UnSArjE_aeoPiOjzwtzJdrfOzT_kQJ0c9Hv3GIw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Test edit actor1\",\"gender\":\"Female\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"movie_id\":2}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/actors/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"actors",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "editActor",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"Test edit actor1\",\"gender\":\"Female\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"movie_id\":2}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/actors/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "786"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.1 Python/3.8.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Aug 2021 17:39:52 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Actors\": [\n        {\n            \"gender\": \"F\",\n            \"id\": 3,\n            \"image_link \": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"movie_id\": 4,\n            \"name\": \"Test add actor0\"\n        },\n        {\n            \"gender\": \"Female\",\n            \"id\": 2,\n            \"image_link \": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"movie_id\": 4,\n            \"name\": \"Test edit actor\"\n        },\n        {\n            \"gender\": \"Female\",\n            \"id\": 1,\n            \"image_link \": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"movie_id\": 2,\n            \"name\": \"Test edit actor1\"\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "DeleteActors",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBlNDQ1ZTQ2OGRhYmMwMDY5MGEzMjU3IiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDA4NDc2MiwiZXhwIjoxNjMwMDkxOTYyLCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.GE3QIc3XQwffJuSZYlYuM6QgQfbN1MTgUmgAPs2uZ4Cw8Jwhr7z408obWMqS3zxQ4DQ40bLv7BOGKrKYXpl1T5tw4dgZwoYXBEDLE9o5S4XZ2Ne_UO8E4edRIRCnsZ0Ahv1cBNUam1uAaF1iFCQ3-LS2RqBkGaFEilR2c6_seMJa_5TG_7G4vicOCP0nubUhRfV8m1kE9vuevNzrCt6AAmL8qubRK3hfmxdIk3uVvf-FRbPyUL-Sn8kPRTIp3xcWkp2LVcLLzAU2LFq4Br71u2PYBzYlJxg2mP5pTi4bwuB8PQ2UnSArjE_aeoPiOjzwtzJdrfOzT_kQJ0c9Hv3GIw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/actors/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"actors",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DeleteActors",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/actors/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"actors",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.0.1 Python/3.8.5"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Aug 2021 17:45:32 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"delete\": 3,\n    \"success\": true\n}"
+				}
+			]
+		}
+	]
+}

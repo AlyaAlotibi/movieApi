@@ -12,7 +12,7 @@ def create_app(test_config=None):
   #CORS(app, resources={r"*/api/*" : {origins: '*'}} نحدد ريسورس
   CORS(app)
   setup_db(app)
-  migrate=Migrate(app,db)
+  
   @app.after_request
   def after_request(response):
         response.headers.add('Access-Control-Allow-Origin', '*')
@@ -31,6 +31,7 @@ def create_app(test_config=None):
   def movies(payload):
     try:
       data=Movies.query.order_by(Movies.id).all()
+      print(data)
       return jsonify({
             'success': True,
              'Movies': [movie.format() for movie in data]
@@ -74,9 +75,13 @@ def create_app(test_config=None):
   def create_actor(payload):
         body = request.get_json()
         name = body.get('name')
+        print(name)
         image_link = body.get('image_link')
+        print(image_link)
         gender = body.get('gender')
+        print(gender)
         movie_id = body.get('movie_id')
+        print(movie_id)
         if name is None:
             abort(400)
         try:
@@ -103,7 +108,7 @@ def create_app(test_config=None):
       movie.link=body['link']
       Movies.update(movie)
       return jsonify({"success": True,
-             "drinks": [movies.format() for movies in Movies.query.all()]}),200
+             "Movies": [movies.format() for movies in Movies.query.all()]}),200
 
     except:
       abort(401)
@@ -122,7 +127,7 @@ def create_app(test_config=None):
       actor.movie_id=body['movie_id']
       Actors.update(actor)
       return jsonify({"success": True,
-             "drinks": [actor.format() for actor in Actors.query.all()]}),200
+             "Actors": [actor.format() for actor in Actors.query.all()]}),200
 
     except:
       abort(401) 
@@ -137,7 +142,7 @@ def create_app(test_config=None):
       return jsonify({"success": True, "delete": movies_id})
     except:
       abort(401)
-  app.route('/actors/<int:actor_id>', methods=['DELETE'])
+  @app.route('/actors/<int:actor_id>', methods=['DELETE'])
   @requires_auth('delete:actors')
   def delete_actors(payload, actor_id):
     removed_actor=Actors.query.filter(Actors.id==actor_id).one_or_none()
@@ -172,7 +177,7 @@ def create_app(test_config=None):
                     }), 401
   return app
 
-APP = create_app()
+app = create_app()
 
 if __name__ == '__main__':
-    APP.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)

@@ -64,10 +64,21 @@ class Actors(db.Model):
         self.gender = gender
         self.movie_id=movie_id
     def format(self):
+        
         return {
             "id": self.id,
             "name": self.name,
             "image_link ":self.image_link ,
             "gender": self.gender,
-            "movies": self.movie_id.title,
+            "movie_id":self.movie_id,
         }
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
