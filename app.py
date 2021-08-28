@@ -50,7 +50,7 @@ def create_app(test_config=None):
         })
     except:
       abort(401)
-  @app.route('/movies/create', methods=['POST'])
+  @app.route('/movies_create', methods=['POST'])
   @requires_auth('post:movies')
   def create_movie(payload):
         body = request.get_json()
@@ -70,7 +70,7 @@ def create_app(test_config=None):
             })
         except:
             abort(401)
-  @app.route('/actors/create', methods=['POST'])
+  @app.route('/actors_create', methods=['POST'])
   @requires_auth('post:actors')
   def create_actor(payload):
         body = request.get_json()
