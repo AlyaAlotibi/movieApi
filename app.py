@@ -46,7 +46,7 @@ def create_app(test_config=None):
       data=Actors.query.order_by(Actors.id).all()
       return jsonify({
             'success': True,
-             'Movies': [actors.format() for actors in data]
+             'Actors': [actors.format() for actors in data]
         })
     except:
       abort(401)
