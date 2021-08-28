@@ -175,13 +175,7 @@ def create_app(test_config=None):
                     "error": 401,
                     "message": "Unauthorized"
                     }), 401
-  @app.errorhandler(403)
-  def Unauthorized(error):
-    return jsonify({
-                    "success": False,
-                    "error": 403,
-                    "message": "Unauthorized"
-                    }), 403
+
   return app
 
 app = create_app()

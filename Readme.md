@@ -31,6 +31,35 @@ This will install all of the required packages we selected within the `requireme
 
  - [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/#) is the extension we'll use to handle cross origin requests from our frontend server. 
 
+## Error Handling
+Errors are returned as JSON objects in the following format
+- success: False.
+- error: error code number.
+- message: error message string giving description about the kind of error.
+- *sample:*
+```
+{
+    "error": 401,
+    "message": "Unauthorized",
+    "success": false
+}
+```
+The API will return four error types when requests fail:
+1. 404: resource not found
+2. 422: unprocessable
+3. 401: Unauthorized
+#### example of error 
+if the user inter `curl http://127.0.0.1:5000/movies/create -X POST` and he does not have post:movies
+- Response body:
+```
+{
+  "error": 401,
+  "message": "Unauthorized",
+  "success": false
+}
+```
+## Test
+the test done by *postman*
 
 ## Endpoints
 
@@ -84,3 +113,4 @@ ps://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/
 
 }
 ```
+
