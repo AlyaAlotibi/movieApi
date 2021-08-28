@@ -6,6 +6,8 @@ db = SQLAlchemy()
 #database_name = "movies"
 #database_path = "postgresql://{}:{}@{}/{}".format('postgres','123','localhost:5432',database_name)
 database_path = os.environ['DATABASE_URL']
+if database_path.startswith("postgres://"):
+    database_path = database_path.replace("postgres://", "postgresql://", 1)
 def setup_db(app):
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
