@@ -37,7 +37,7 @@ def create_app(test_config=None):
              'Movies': [movie.format() for movie in data]
         })
     except:
-      abort(403)
+      abort(401)
   
   @app.route('/actors')
   @requires_auth('get:actors')
@@ -49,7 +49,7 @@ def create_app(test_config=None):
              'Movies': [actors.format() for actors in data]
         })
     except:
-      abort(403)
+      abort(401)
   @app.route('/movies/create', methods=['POST'])
   @requires_auth('post:movies')
   def create_movie(payload):
@@ -69,7 +69,7 @@ def create_app(test_config=None):
                 'created': new_movie.title,
             })
         except:
-            abort(403)
+            abort(401)
   @app.route('/actors/create', methods=['POST'])
   @requires_auth('post:actors')
   def create_actor(payload):
@@ -92,7 +92,7 @@ def create_app(test_config=None):
                 'created': new_actor.name,
             })
         except:
-            abort(403)
+            abort(401)
   @app.route('/movies/<int:movies_id>',methods=['PATCH'])
   @requires_auth('patch:movies')
   def edit_movies(payload,movies_id):
@@ -111,7 +111,7 @@ def create_app(test_config=None):
              "Movies": [movies.format() for movies in Movies.query.all()]}),200
 
     except:
-      abort(403)
+      abort(401)
 
   @app.route('/actors/<int:actor_id>', methods=['PATCH'])
   @requires_auth('patch:actors')
@@ -130,7 +130,7 @@ def create_app(test_config=None):
              "Actors": [actor.format() for actor in Actors.query.all()]}),200
 
     except:
-      abort(403) 
+      abort(401) 
   @app.route('/movies/<int:movies_id>',methods=['DELETE'])
   @requires_auth('delete:movies')
   def delete_movies(payload,movies_id):
@@ -141,7 +141,7 @@ def create_app(test_config=None):
       Movies.delete(removed_movie)
       return jsonify({"success": True, "delete": movies_id})
     except:
-      abort(403)
+      abort(401)
   @app.route('/actors/<int:actor_id>', methods=['DELETE'])
   @requires_auth('delete:actors')
   def delete_actors(payload, actor_id):
@@ -152,7 +152,7 @@ def create_app(test_config=None):
       Actors.delete(removed_actor)
       return jsonify({"success": True, "delete": actor_id})
     except:
-      abort(403) 
+      abort(401) 
   # Error Handling
   @app.errorhandler(422)
   def unprocessable(error):
@@ -168,12 +168,19 @@ def create_app(test_config=None):
                     "error": 404,
                     "message": "resource not found"
                     }), 404
+  @app.errorhandler(401)
+  def Unauthorized(error):
+    return jsonify({
+                    "success": False,
+                    "error": 401,
+                    "message": "Unauthorized"
+                    }), 401
   @app.errorhandler(403)
   def Unauthorized(error):
     return jsonify({
                     "success": False,
                     "error": 403,
-                    "message": "Unauthorized ,Permission not found"
+                    "message": "Unauthorized"
                     }), 403
   return app
 
