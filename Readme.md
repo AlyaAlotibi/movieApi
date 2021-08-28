@@ -40,7 +40,7 @@ This will install all of the required packages we selected within the `requireme
     - Request Arguments:None
     - Public endpoint
     - Returns message and success value 
-- *sample*:`curl http://127.0.0.1:5000/api`
+- *sample*:`curl http://127.0.0.1:5000/`
 - Response body:
 ```
 {
@@ -48,49 +48,33 @@ This will install all of the required packages we selected within the `requireme
   "success": true
 }
 ```
-3. #### GET /movies
-- *General*:
-    - Display All movies 
-    - Request Arguments: None
-    - require get:movies permission
-4. #### GET /api/movies
+
+2. #### GET /movies
 - *General*:
     - Returns a list of all movies and success value
     - Request Arguments: None
     - require get:movies permission
-- *sample*:`curl http://127.0.0.1:5000/api`
+- *sample*:`curl http://127.0.0.1:5000/movies`
 - Response body:
 ```
 {
-  "Movies": [
-    {
-      "id": 1,
-      "image_link": "https://horrornews.net/wp-content/uploads/2021/03/The-Scientist-2020-movie-9.jpg",
-      "link": "https://horrornews.net/164691/film-review-the-scientist-2020/",
-      "main_actor": [],
-      "release_date": "August 17, 2020",
-      "title": "The Scientist",
-      "type": "{Action,Horror}"
-    },
-    {
-      "id": 2,
-      "image_link": "https://m.media-amazon.com/images/M/MV5BYWU1MTM4OTktZTU4OS00ZWNiLTk0ZTYtOGM4Y2M3NTVhOGJlXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg",
-      "link": "https://www.imdb.com/title/tt5715066/",
-      "main_actor": [],
-      "release_date": "August 17, 2021",
-      "title": "Mortal",
-      "type": "{Action}"
-    }],
-  "success": true
+    "Movies": [
+        {
+            "id": 1,
+            "image_link": "https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg",
+            "link": "https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/",
+            "main_actor": [],
+            "release_date": "August 23, 2021",
+            "title": "Test new movie",
+            "type": "Action"
+        }
+    ],
+    "success": true
 }
 ```
-5. #### GET /index
-- *General*:
-    - Display flash messages
-    - Request Arguments: None
-    - require post:movies,post:actors permission
-6. #### POST /api/m/create 
-- *sample* `curl http://127.0.0.1:5000/api/movies/create -X POST -H "Content-Type: application/json" -d '{"title":"Test add movie", "release_date":"August 23, 2021", "type":"Action","image_link":"htt
+
+3. #### POST /movies/create 
+- *sample* `curl http://127.0.0.1:5000/movies/create -X POST -H "Content-Type: application/json" -d '{"title":"Test add movie", "release_date":"August 23, 2021", "type":"Action","image_link":"htt
 ps://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg","link":"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/"}'`
 - Response body:
 ```
