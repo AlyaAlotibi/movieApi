@@ -60,7 +60,43 @@ if the user inter `curl http://127.0.0.1:5000/movies/create -X POST` and he does
 ```
 ## Test
 the test done by *postman*
+## Roles and permessions 
+  - There are 3 Roles:
+  1. MOVIE_PRODUCER with 
+    `
+        "permissions": 
+            "delete:actors",
+            "delete:movies",
+            "get:actors",
+            "get:movies",
+            "patch:actors",
+            "patch:movies",
+            "post:actors",
+            "post:movies" 
+        `
+ 
+  2. MOVIE_ASSISTANT with 
+       
+ 
+       ` "permissions": 
+        "get:actors",
+        "get:movies"
+        `
 
+  3. MOVIE_DIRECTOR with 
+    `
+      "permissions": [
+        "delete:actors",
+        "get:actors",
+        "get:movies",
+        "patch:actors",
+        "patch:movies",
+       "post:actors"
+    `
+ 
+
+
+    
 ## Endpoints
 
 
