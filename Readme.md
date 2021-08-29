@@ -82,8 +82,8 @@ the test done by *postman*
 - *General*:
     - Returns a list of all movies and success value
     - Request Arguments: None
-    - require get:movies permission
-- *sample*:`curl http://127.0.0.1:5000/movies`
+    - require get:movies permission 
+- *sample*:In alnaMovies.postman_collection file
 - Response body:
 ```
 {
@@ -101,10 +101,46 @@ the test done by *postman*
     "success": true
 }
 ```
+3. #### GET /actors 
+- *General*:
+    - Returns a list of all actors and success value
+    - Request Arguments: None
+    - require get:actors permission
+- *sample*:In alnaMovies.postman_collection file
+- Response body:
+{
+    "Actors": [
+        {
+            "gender": "Female",
+            "id": 1,
+            "image_link ": "https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg",
+            "movie_id": 4,
+            "name": "Test new actor"
+        },
+        {
+            "gender": "Female",
+            "id": 2,
+            "image_link ": "https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg",
+            "movie_id": 2,
+            "name": "Test new actor1"
+        }
+    ],
+    "success": true
+}
 
-3. #### POST /movies/create 
-- *sample* `curl http://127.0.0.1:5000/movies/create -X POST -H "Content-Type: application/json" -d '{"title":"Test add movie", "release_date":"August 23, 2021", "type":"Action","image_link":"htt
-ps://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg","link":"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/"}'`
+4. #### POST /movies_create 
+- *General*:
+    - Returns title of movie created and success value 
+    - require post:movies permission
+    - Request Arguments: a key/value object whit the 
+    following {
+        - title: (type:string) containing the title of the movie .
+        - type: (type:string) containing type of the movie e.g:Action.
+        - release_date: (type:DateTime) date of release the movie.
+        - image_link:(type:string) link of movie img.
+        - link:(type:string) link of movie .
+    }
+- *sample* In alnaMovies.postman_collection file
 - Response body:
 ```
 {
@@ -113,4 +149,145 @@ ps://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/
 
 }
 ```
+5. #### POST /actors_create 
+- *General*:
+    - Returns name of the actor created and success value
+    - require post:actors permission 
+    - Request Arguments: a key/value object whit the following {
+        - name: (type:string) containing the name of the actor .
+        - gender: (type:string) containing gender .
+        - image_link:(type:string) link of movie img.
+        - movie_id:(type:integer) ForeignKey of movie id.
+    }
+- *sample* In alnaMovies.postman_collection file
+- Response body:
+```
+{
+    "created": "Test add actor3",
+    "success": true
+}
+```
+6. #### PATCH /movies/<int:movies_id>
+- *General*:
+    - Returns a list of movies and success value 
+    - require patch:movies permission
+    - Request Arguments: movies_id *required*in the url and in the body a key/value object whit the following {
+        - title: (type:string) containing new value of the title  .
+        - type: (type:string) containing type of the movie e.g:Action.
+        - release_date: (type:DateTime) date of release the movie.
+        - image_link:(type:string) link of movie img.
+        - link:(type:string) link of movie .
+    }
+- *sample* In alnaMovies.postman_collection file
+- Response body:
+```
+{
+    "Movies": [
+        {
+            "id": 1,
+            "image_link": "https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg",
+            "link": "https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/",
+            "main_actor": [
+                "Test add actor0",
+                "Test add actor1"
+            ],
+            "release_date": "August 23, 2021",
+            "title": "Test new movie",
+            "type": "Action"
+        },
+        {
+            "id": 2,
+            "image_link": "https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg",
+            "link": "https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/",
+            "main_actor": [
+                "Test add actor2",
+                "Test add actor3"
+            ],
+            "release_date": "August 23, 2021",
+            "title": "Test new7 movie",
+            "type": "Action"
+        },
+        {
+            "id": 4,
+            "image_link": "https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg",
+            "link": "https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/",
+            "main_actor": [],
+            "release_date": "August 23, 2021",
+            "title": "Test new1 movie1",
+            "type": "Action"
+        },
+        {
+            "id": 3,
+            "image_link": "https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg",
+            "link": "https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/",
+            "main_actor": [],
+            "release_date": "August 23, 2021",
+            "title": "edit movie",
+            "type": "Action,Drama"
+        }
+    ],
+    "success": true
+}
+```
+7. #### PATCH /actors/<int:actors_id>
+- *General*:
+    - Returns a list of Actors and success value 
+    - require patch:actors permission
+    - Request Arguments: actors_id *required* in the url and for body request  a key/value object whit the following {
+        - name: (type:string) containing the name of the actor .
+        - gender: (type:string) containing gender .
+        - image_link:(type:string) link of movie img.
+        - movie_id:(type:integer) ForeignKey of movie id.
+    }
 
+    - *sample* In alnaMovies.postman_collection file
+    - Response body:
+```
+{
+    "Actors": [
+        {
+            "gender": "Female",
+            "id": 2,
+            "image_link ": "https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg",
+            "movie_id": 4,
+            "name": "Test edit actor"
+        },
+        {
+            "gender": "Female",
+            "id": 1,
+            "image_link ": "https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg",
+            "movie_id": 2,
+            "name": "Test edit actor1"
+        }
+    ],
+    "success": true
+}
+```
+8.  #### DELETE /actors/<int:actors_id>
+- *General*:
+    - Returns id of deleted actor and success value 
+    - require delete:actors permission
+    - Request Arguments: actors_id *required*
+- *Sample*: In alnaMovies.postman_collection file
+- Response body:
+```
+{
+    "delete": 1,
+    "success": true
+}
+
+```
+9.  #### DELETE /movies/<int:movies_id>
+- *General*:
+    - Returns id of deleted movie and success value 
+    - require delete:movies permission
+    - Request Arguments: movies_id *required*
+- *Sample*: In alnaMovies.postman_collection file
+- Response body:
+```
+{
+    "delete": 1,
+    "success": true
+}
+
+```

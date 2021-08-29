@@ -1,0 +1,1298 @@
+{
+	"info": {
+		"_postman_id": "340b50e2-6eb3-49b4-87ae-7d2bd9e4c970",
+		"name": "alnaMovies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POSTmoviewithUnauthUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\",function(){\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYyOTg0MTk2OSwiZXhwIjoxNjI5ODQ5MTY5LCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmluZGV4Il19.c7WMhsrPvI0hQlBlV1Bn58aUy6ZZTtE_FJLmDqGPjE72pnEZLJjngkBHlMYCorbWi-LCv4ys56tsDdhF5jOAzOC0S9-dv6rZGRmSj4h1y8YzNxKTPznHgWyjL868m6eNZ4iXsace8U__j9xk7pHGydEPgOGqspzCIILTQqy-B2HcDo7Z8rvH0sTbmuNac2Q0ac4pmUc83KuvSDf2ioXDYpJb4O3PW4gjymjItsksHhVFrCJR0yq_VMeExHcQg-rWobufnnC0iwJqP55ripyrzyczcaBiLZCBkuqIAJiLzjqBLxhJJwu5dgihih3G9kqGWWXNozrL2__HCMptZtDQgw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"Test new1 movie\", \"release_date\":\"August 23, 2021\", \"type\":\"Action\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"link\":\"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://myproject511.herokuapp.com/movies_create",
+					"protocol": "https",
+					"host": [
+						"myproject511",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies_create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POSTmoviewithUnauthUser",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"Test new1 movie\", \"release_date\":\"August 23, 2021\", \"type\":\"Action\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"link\":\"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myproject511.herokuapp.com/movies_create",
+							"protocol": "https",
+							"host": [
+								"myproject511",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies_create"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Aug 2021 20:34:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": 401,\n    \"message\": \"Unauthorized\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "PostMovieWithvaildAuth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDE3OTUzNywiZXhwIjoxNjMwMjY1OTM3LCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.bTZiMWomWKKlR5MhAgdIiHiO1-2ThfS8oHsCsS5FQpz8qn0U_y6HOx4b98CjwSTK4zkaXmKK5oh_14cwZeLm5COG8mgCJxjEoGqTO4zfo4gZo0sN5h4klrXPfZEtuhwqUII3oAbUGGext8tEC5wgXtCOZemqrP3ASd7BqY6RIE7gvRHvw-xVzeuk1DOI_FQmT1K0D66IQjhaMFUlXsVHbDFRACdddffmEg-hhM8-A7wQWq2FCFrI5_cfePQ4dIVNOzL7XeWMEHuWp7A7WoV6qLh_9QNC9mY9jagIEh-WoSC0UofVlOQ-9uK9gyjzvi68EEnna4B8kWap3XRhhSXmTQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"Test new1 movie00\", \"release_date\":\"August 23, 2021\", \"type\":\"Action\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"link\":\"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://myproject511.herokuapp.com/movies_create",
+					"protocol": "https",
+					"host": [
+						"myproject511",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies_create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PostMovieWithvaildAuth",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"Test new1 movie00\", \"release_date\":\"August 23, 2021\", \"type\":\"Action\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"link\":\"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myproject511.herokuapp.com/movies_create",
+							"protocol": "https",
+							"host": [
+								"myproject511",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies_create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Aug 2021 20:36:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"created\": \"Test new1 movie00\",\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "publicEndpoint",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://myproject511.herokuapp.com/",
+					"protocol": "https",
+					"host": [
+						"myproject511",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "publicEndpoint",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://myproject511.herokuapp.com/",
+							"protocol": "https",
+							"host": [
+								"myproject511",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Aug 2021 20:28:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Welcome to Alna Movies websit\",\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "GetMoviesWithValidAuth",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDE3OTUzNywiZXhwIjoxNjMwMjY1OTM3LCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.bTZiMWomWKKlR5MhAgdIiHiO1-2ThfS8oHsCsS5FQpz8qn0U_y6HOx4b98CjwSTK4zkaXmKK5oh_14cwZeLm5COG8mgCJxjEoGqTO4zfo4gZo0sN5h4klrXPfZEtuhwqUII3oAbUGGext8tEC5wgXtCOZemqrP3ASd7BqY6RIE7gvRHvw-xVzeuk1DOI_FQmT1K0D66IQjhaMFUlXsVHbDFRACdddffmEg-hhM8-A7wQWq2FCFrI5_cfePQ4dIVNOzL7XeWMEHuWp7A7WoV6qLh_9QNC9mY9jagIEh-WoSC0UofVlOQ-9uK9gyjzvi68EEnna4B8kWap3XRhhSXmTQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://myproject511.herokuapp.com/movies",
+					"protocol": "https",
+					"host": [
+						"myproject511",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetMoviesWithValidAuth",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://myproject511.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"myproject511",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Aug 2021 19:45:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "344"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Movies\": [\n        {\n            \"id\": 1,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"Test new movie\",\n            \"type\": \"Action\"\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "GetMoviesWithInvalidAuth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\",function(){\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYyOTg0MTk2OSwiZXhwIjoxNjI5ODQ5MTY5LCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmluZGV4Il19.c7WMhsrPvI0hQlBlV1Bn58aUy6ZZTtE_FJLmDqGPjE72pnEZLJjngkBHlMYCorbWi-LCv4ys56tsDdhF5jOAzOC0S9-dv6rZGRmSj4h1y8YzNxKTPznHgWyjL868m6eNZ4iXsace8U__j9xk7pHGydEPgOGqspzCIILTQqy-B2HcDo7Z8rvH0sTbmuNac2Q0ac4pmUc83KuvSDf2ioXDYpJb4O3PW4gjymjItsksHhVFrCJR0yq_VMeExHcQg-rWobufnnC0iwJqP55ripyrzyczcaBiLZCBkuqIAJiLzjqBLxhJJwu5dgihih3G9kqGWWXNozrL2__HCMptZtDQgw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://myproject511.herokuapp.com/movies",
+					"protocol": "https",
+					"host": [
+						"myproject511",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetMoviesWithInvalidAuth",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://myproject511.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"myproject511",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Aug 2021 20:37:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": 401,\n    \"message\": \"Unauthorized\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "DeleteMovieWithInvalidToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\",function(){\r",
+							"    pm.response.to.have.status(401);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYyOTg0MTk2OSwiZXhwIjoxNjI5ODQ5MTY5LCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmluZGV4Il19.c7WMhsrPvI0hQlBlV1Bn58aUy6ZZTtE_FJLmDqGPjE72pnEZLJjngkBHlMYCorbWi-LCv4ys56tsDdhF5jOAzOC0S9-dv6rZGRmSj4h1y8YzNxKTPznHgWyjL868m6eNZ4iXsace8U__j9xk7pHGydEPgOGqspzCIILTQqy-B2HcDo7Z8rvH0sTbmuNac2Q0ac4pmUc83KuvSDf2ioXDYpJb4O3PW4gjymjItsksHhVFrCJR0yq_VMeExHcQg-rWobufnnC0iwJqP55ripyrzyczcaBiLZCBkuqIAJiLzjqBLxhJJwu5dgihih3G9kqGWWXNozrL2__HCMptZtDQgw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://myproject511.herokuapp.com/movies/8",
+					"protocol": "https",
+					"host": [
+						"myproject511",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies",
+						"8"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DeleteMovieWithInvalidToken",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://myproject511.herokuapp.com/movies/8",
+							"protocol": "https",
+							"host": [
+								"myproject511",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"8"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Aug 2021 20:44:00 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": 401,\n    \"message\": \"Unauthorized\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "DeleteMovieWithValidToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDE3OTUzNywiZXhwIjoxNjMwMjY1OTM3LCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.bTZiMWomWKKlR5MhAgdIiHiO1-2ThfS8oHsCsS5FQpz8qn0U_y6HOx4b98CjwSTK4zkaXmKK5oh_14cwZeLm5COG8mgCJxjEoGqTO4zfo4gZo0sN5h4klrXPfZEtuhwqUII3oAbUGGext8tEC5wgXtCOZemqrP3ASd7BqY6RIE7gvRHvw-xVzeuk1DOI_FQmT1K0D66IQjhaMFUlXsVHbDFRACdddffmEg-hhM8-A7wQWq2FCFrI5_cfePQ4dIVNOzL7XeWMEHuWp7A7WoV6qLh_9QNC9mY9jagIEh-WoSC0UofVlOQ-9uK9gyjzvi68EEnna4B8kWap3XRhhSXmTQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://myproject511.herokuapp.com/movies/9",
+					"protocol": "https",
+					"host": [
+						"myproject511",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies",
+						"9"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DeleteMovieWithValidToken",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://myproject511.herokuapp.com/movies/9",
+							"protocol": "https",
+							"host": [
+								"myproject511",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"9"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Aug 2021 20:43:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"delete\": 9,\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "PostActorsWithInvalidToken",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBlNDQ1ZTQ2OGRhYmMwMDY5MGEzMjU3IiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDA4NDc2MiwiZXhwIjoxNjMwMDkxOTYyLCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.GE3QIc3XQwffJuSZYlYuM6QgQfbN1MTgUmgAPs2uZ4Cw8Jwhr7z408obWMqS3zxQ4DQ40bLv7BOGKrKYXpl1T5tw4dgZwoYXBEDLE9o5S4XZ2Ne_UO8E4edRIRCnsZ0Ahv1cBNUam1uAaF1iFCQ3-LS2RqBkGaFEilR2c6_seMJa_5TG_7G4vicOCP0nubUhRfV8m1kE9vuevNzrCt6AAmL8qubRK3hfmxdIk3uVvf-FRbPyUL-Sn8kPRTIp3xcWkp2LVcLLzAU2LFq4Br71u2PYBzYlJxg2mP5pTi4bwuB8PQ2UnSArjE_aeoPiOjzwtzJdrfOzT_kQJ0c9Hv3GIw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Test add actor\",\"gender\":\"female\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"movie_id\":3}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://myproject511.herokuapp.com/actors/create",
+					"protocol": "https",
+					"host": [
+						"myproject511",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"actors",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PostActorsWithInvalidToken",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"Test add actor\",\"gender\":\"female\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"movie_id\":3}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myproject511.herokuapp.com/actors/create",
+							"protocol": "https",
+							"host": [
+								"myproject511",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"create"
+							]
+						}
+					},
+					"status": "UNAUTHORIZED",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Aug 2021 20:23:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": 401,\n    \"message\": \"Unauthorized\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "PostActorsWithvalidToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjEyOTA1NTI3OTllNzAwMDcwODEzOTZlIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDE4MTc3MywiZXhwIjoxNjMwMjY4MTczLCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.HrvpzPwgyGaDG1VvVBmMFCNnm2OZSZNkCWY5kHEEdN2tP3IHmqVZZK3-ml0ZSrp3e9JWkga17n_s6To7G34XsjCwgJ-VecHnMZmipDtn_V3A7C9Pn2MywAQJR_ukOidsPJ3Ka1i6VnwZNFsqibYohJuiStfOKrwm-CxFFLXhQzQCKKLyftUt_pRp8abb5fWSY4RWssAcIgSF7Pb1ix3FBsTMHTxR5Sm3gZf11ztyFTNPOkBAcx1Q52GWSTY1rmyjSMSRZw2YG85QEzJg444DZE77IQCBrzrxMrWA8O7W5ax9-2hecu-9QrKjKAgtSKvvIJzr6YQYVxbqJSRXXR2HbQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Test add actor3\",\"gender\":\"F\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"movie_id\":2}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://myproject511.herokuapp.com/actors_create",
+					"protocol": "https",
+					"host": [
+						"myproject511",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"actors_create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PostActorsWithvalidToken",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"Test add actor3\",\"gender\":\"F\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"movie_id\":2}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myproject511.herokuapp.com/actors_create",
+							"protocol": "https",
+							"host": [
+								"myproject511",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors_create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Aug 2021 20:45:54 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"created\": \"Test add actor3\",\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "GetActorswithvalidToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBlNDQ1ZTQ2OGRhYmMwMDY5MGEzMjU3IiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDE4MTE2OCwiZXhwIjoxNjMwMjY3NTY4LCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiXX0.k9v5CILqGQbB61jF_hEvV1KKC63VtTtaj-7dFwFUWi91YgUv9Ms1jrGVjcNa0G2g6ceCHXE2Ej_NpQG0sdoPP4e9MqGKncK8r8EttHuylmIL7oZURBCbjyFeN2strbRN0UpuucCU8_XV7mgxfeZrAqgur_ZGtLHsluTAqG0P9EmuoOtW9v0qo1Bg1sJFMO3Q5JwuhFC0yjPOKk8B0uylpMAArtKSWNOPp2_tcdt2UEpfoTw9trwrUnDy1zASXKAZbvSOsWyQvopAyzUKLXYjwZ31Iah44YWDQ9HsMde1684gGvkNeHyv8sTUFa4l5T8yrkefDjKWLDGOx3sGc4trzw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://myproject511.herokuapp.com/actors",
+					"protocol": "https",
+					"host": [
+						"myproject511",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"actors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editmovie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDE3OTUzNywiZXhwIjoxNjMwMjY1OTM3LCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.bTZiMWomWKKlR5MhAgdIiHiO1-2ThfS8oHsCsS5FQpz8qn0U_y6HOx4b98CjwSTK4zkaXmKK5oh_14cwZeLm5COG8mgCJxjEoGqTO4zfo4gZo0sN5h4klrXPfZEtuhwqUII3oAbUGGext8tEC5wgXtCOZemqrP3ASd7BqY6RIE7gvRHvw-xVzeuk1DOI_FQmT1K0D66IQjhaMFUlXsVHbDFRACdddffmEg-hhM8-A7wQWq2FCFrI5_cfePQ4dIVNOzL7XeWMEHuWp7A7WoV6qLh_9QNC9mY9jagIEh-WoSC0UofVlOQ-9uK9gyjzvi68EEnna4B8kWap3XRhhSXmTQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"edit movie\", \"release_date\":\"August 23, 2021\", \"type\":\"Action,Drama\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"link\":\"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://myproject511.herokuapp.com/movies/3",
+					"protocol": "https",
+					"host": [
+						"myproject511",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "editmovie",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"edit movie\", \"release_date\":\"August 23, 2021\", \"type\":\"Action,Drama\",\"image_link\":\"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\"link\":\"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myproject511.herokuapp.com/movies/3",
+							"protocol": "https",
+							"host": [
+								"myproject511",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Aug 2021 20:54:29 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1367"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Movies\": [\n        {\n            \"id\": 1,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [\n                \"Test add actor0\",\n                \"Test add actor1\"\n            ],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"Test new movie\",\n            \"type\": \"Action\"\n        },\n        {\n            \"id\": 2,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [\n                \"Test add actor2\",\n                \"Test add actor3\"\n            ],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"Test new7 movie\",\n            \"type\": \"Action\"\n        },\n        {\n            \"id\": 4,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"Test new1 movie1\",\n            \"type\": \"Action\"\n        },\n        {\n            \"id\": 3,\n            \"image_link\": \"https://s3-us-west-2.amazonaws.com/flx-editorial-wordpress/wp-content/uploads/2019/09/01093013/Endgame-Lead-1.jpg\",\n            \"link\": \"https://editorial.rottentomatoes.com/article/highest-grossing-movies-all-time/\",\n            \"main_actor\": [],\n            \"release_date\": \"August 23, 2021\",\n            \"title\": \"edit movie\",\n            \"type\": \"Action,Drama\"\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "DeleteActors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InZ4V2lPODRWcHBHN1llWEtSRnFuQyJ9.eyJpc3MiOiJodHRwczovL3ByYWN0aWMtbWlzay51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDI5Y2FhNzhiN2EwMDcwNmI4NGUzIiwiYXVkIjoiYWxuYW1vdmllcyIsImlhdCI6MTYzMDE3OTUzNywiZXhwIjoxNjMwMjY1OTM3LCJhenAiOiJPbDVLaVN3WHp6Z2d2VG5mV1g0eWd4UFJ0akFiVXVNUyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.bTZiMWomWKKlR5MhAgdIiHiO1-2ThfS8oHsCsS5FQpz8qn0U_y6HOx4b98CjwSTK4zkaXmKK5oh_14cwZeLm5COG8mgCJxjEoGqTO4zfo4gZo0sN5h4klrXPfZEtuhwqUII3oAbUGGext8tEC5wgXtCOZemqrP3ASd7BqY6RIE7gvRHvw-xVzeuk1DOI_FQmT1K0D66IQjhaMFUlXsVHbDFRACdddffmEg-hhM8-A7wQWq2FCFrI5_cfePQ4dIVNOzL7XeWMEHuWp7A7WoV6qLh_9QNC9mY9jagIEh-WoSC0UofVlOQ-9uK9gyjzvi68EEnna4B8kWap3XRhhSXmTQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://myproject511.herokuapp.com/movies/1",
+					"protocol": "https",
+					"host": [
+						"myproject511",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DeleteActors",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://myproject511.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"myproject511",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 28 Aug 2021 20:55:53 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, DELETE, OPTION"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"delete\": 1,\n    \"success\": true\n}"
+				}
+			]
+		}
+	]
+}
