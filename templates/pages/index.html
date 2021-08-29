@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% block title %}Alna movies{% endblock %}
+{% block content %}
+<div class="banner">
+
+    <video autoplay muted loop>
+        <source src="static/images/IMG_3210.MP4" type="video/mp4">
+    </video>
+    
+    <div class="content">
+        <div class="square">
+         <h1> API Endpoints </h1>   
+        <p>GET /movies , GET /actors </p>
+        <p>POST /movies_create , POST /actors_create</p>
+        <p>PATCH /movies/{int:movies_id} , PATCH /actors/{int:actors_id}</p>
+        <p>DELETE /actors/{int:actors_id} , DELETE /movies/{int:movies_id}</p>
+
+       
+           
+       </a> 
+        </div>
+        
+
+    </div>
+</div>
+{% endblock %}

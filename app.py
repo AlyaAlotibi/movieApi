@@ -1,6 +1,6 @@
 import os
 from flask import (Flask, request,
- abort, jsonify)
+ abort, jsonify,render_template)
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_migrate import Migrate 
@@ -20,12 +20,8 @@ def create_app(test_config=None):
         response.headers.add('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTION')
         return response
   @app.route('/')
-  def index():
-    return jsonify({
-            'success': True,
-            'message': 'Welcome to Alna Movies websit',
-
-        })
+  def home():
+    return render_template('pages/index.html')
   @app.route('/movies')
   @requires_auth('get:movies')
   def movies(payload):

@@ -104,15 +104,7 @@ the test done by *postman*
 - *General*:
     - Request Arguments:None
     - Public endpoint
-    - Returns message and success value 
-- *sample*:`curl http://127.0.0.1:5000/`
-- Response body:
-```
-{
-  "message": "Welcome to Alna Movies websit",
-  "success": true
-}
-```
+    - Returns html page  
 
 2. #### GET /movies
 - *General*:
