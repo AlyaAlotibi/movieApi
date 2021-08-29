@@ -3,11 +3,11 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_migrate import Migrate 
 db = SQLAlchemy()
-database_name = "movies"
-database_path = "postgresql://{}:{}@{}/{}".format('postgres','123','localhost:5432',database_name)
-#database_path = os.environ['DATABASE_URL']
-#if database_path.startswith("postgres://"):
-#    database_path = database_path.replace("postgres://", "postgresql://", 1)
+#database_name = "movies"
+#database_path = "postgresql://{}:{}@{}/{}".format('postgres','123','localhost:5432',database_name)
+database_path = os.environ['DATABASE_URL']
+if database_path.startswith("postgres://"):
+    database_path = database_path.replace("postgres://", "postgresql://", 1)
 def setup_db(app):
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -27,7 +27,8 @@ class Movies(db.Model):
     release_date=db.Column(db.DateTime, nullable=False)
     #define relationship one movie can has many actors
     main_actor = db.relationship("Actors", backref="movies")
-    def __init__(self, title, type, image_link, release_date,link):
+    def __init__(self, id,title, type, image_link, release_date,link):
+        self.id=id
         self.title = title
         self.type = type
         self.image_link= image_link
@@ -60,7 +61,8 @@ class Actors(db.Model):
     image_link = db.Column(db.String(500), nullable=False)
     gender = db.Column(db.String(10))
     movie_id = db.Column(db.Integer, db.ForeignKey("movies.id"))
-    def __init__(self, name, image_link, gender,movie_id):
+    def __init__(self, id,name, image_link, gender,movie_id):
+        self.id=id
         self.name = name
         self.image_link= image_link
         self.gender = gender

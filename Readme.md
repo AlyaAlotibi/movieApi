@@ -7,7 +7,9 @@ This is the final project in FSND from Udacity.It is a movie website to view mov
 ## Getting Started
 ### heroku url 
 - `https://myproject511.herokuapp.com/`
-
+### Auth login
+- 
+`https://practic-misk.us.auth0.com/authorize?audience=alnamovies&response_type=token&client_id=Ol5KiSwXzzggvTnfWX4ygxPRtjAbUuMS&redirect_uri=https://127.0.0.1:5000/index `
 #### Installing Dependencies
 ### Installing Dependencies for the Backend
 
