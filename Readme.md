@@ -144,6 +144,7 @@ the test done by *postman*
     - require get:actors permission
 - *sample*:In alnaMovies.postman_collection file
 - Response body:
+```
 {
     "Actors": [
         {
@@ -163,7 +164,7 @@ the test done by *postman*
     ],
     "success": true
 }
-
+```
 4. #### POST /movies_create 
 - *General*:
     - Returns title of movie created and success value 
